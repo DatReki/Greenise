@@ -1,0 +1,220 @@
+/* Variables */
+$nav-color: #ff7f11ff;
+$bg-color: #292b31;
+$section-bg-color: #454851ff;
+$text-color: #f5f0f6ff;
+$special-color: #66999bff;
+
+$nav-font-weight: 600;
+$nav-font-size: 1.5rem;
+
+/* Breakpoints */
+$sm: 576px;     //Small
+$md: 768px;     //Medium
+$lg: 992px;     //Large
+$xl: 1200px;    //Extra large
+$xxl: 1400px;   //Extra extra large
+
+/* Default */
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Nav */
+.body-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    nav,
+    footer {
+        background-color: $nav-color;
+        padding: 0.5em;
+
+        a,
+        h5,
+        p {
+            color: $text-color;
+        }
+
+        a {
+            &:hover,
+            &:focus {
+                color: $text-color;
+                text-decoration: none;
+                border-bottom: 0.20em solid $special-color;
+            }
+        }
+
+        .nav-link {
+            padding-right: 0.75em !important;
+        }
+
+        .d-flex {
+            @media (max-width: $lg) {
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                background-color: $nav-color;
+    
+                @media (max-width: $lg) {
+                    width: 100%;
+                }
+    
+                .dropdown-item {
+                    &:hover {
+                        background-color: initial;
+                    }
+                }
+            }
+        }
+    }
+    
+    nav {
+        a {
+            height: 2.5em;
+            font-weight: $nav-font-weight;
+            font-size: $nav-font-size;
+        }
+
+        .navbar-toggler {
+            span {
+                color: $text-color;
+            }
+        }
+    }
+
+    footer {
+        margin-top: auto;
+        min-height: 12em;
+
+        a {
+            height: 1.5em;
+        }
+
+        h5 {
+            font-weight: $nav-font-weight;
+            font-size: $nav-font-size;
+        }
+
+        .newsletter-errors {
+            padding: 0.5em;
+            background-color: $text-color;
+        }
+
+        #social-media-icons {
+            a {
+                &:hover {
+                    border-bottom: none;
+                    span {
+                        color: darken($text-color, 20%);
+                    }
+                }
+                span {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+}
+
+/* General classes */
+.text-image-overlay {
+    position: relative;
+
+    @media (max-width: 860px) {
+        div,
+        img {
+            height: 36em;
+        }
+
+        @media (max-width: 660px) {
+            div,
+            img {
+                height: 48em;
+            }
+
+            @media (max-width: 460px) {
+                div,
+                img {
+                    height: 56em;
+                }
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba($special-color, 0.50);
+        padding: 2em;
+        width: 50%;
+        color: $text-color;
+
+        @media (max-width: $xl) {
+            width: 75%;
+        }
+
+        @media (max-width: 950px) {
+            width: 100%;
+            height: 100%;
+        }
+
+        a {
+            background-color: $nav-color;
+            color: $text-color;
+
+            &:hover {
+                background-color: darken($nav-color, 10%);
+            }
+        }
+
+        h1 {
+            color: $nav-color;
+        }
+    }
+}
+
+.load-in-point {
+    $border-corner: 15px;
+    $point-height: 15em;
+    
+    height: $point-height;
+    background-color: $special-color;
+    border-radius: $border-corner;
+
+    img {
+        border-radius: $border-corner;
+        height: $point-height;
+    }
+
+    h2,
+    h3 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 3rem;
+        color: $nav-color;
+        padding: 0;
+    }
+
+    h3 {
+        padding: 2px 0 5px 0;
+        font-size: 1.5rem;
+        color: darken($nav-color, 0.20%);
+    }
+
+    p {
+        color: $text-color;
+    }
+}
