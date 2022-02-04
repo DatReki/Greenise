@@ -11,7 +11,8 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/css/uikit.min.css' }
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/uikit@3.10.1/dist/css/uikit.min.css' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' }
     ],
     script: [
       { src: '/js/main.js' },
@@ -23,7 +24,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/main.scss'
+    '@/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -44,7 +45,12 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next'
   ],
+
+  auth: {
+
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

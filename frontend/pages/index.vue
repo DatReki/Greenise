@@ -36,25 +36,57 @@
                     Praesent iaculis ullamcorper hendrerit. Suspendisse lacinia nunc eu urna aliquet, vitae sodales erat vehicula.
                     Duis finibus tempus sem consequat placerat.
                 </p>
-                <a class="btn btn-primary">More information</a>
+                <a class="btn btn-main">More information</a>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="load-in-points">
-            <div class="load-in-point">
-                <div class="container px-0">
+            <LoadInPoint filename="windmill" alt-text="Windmill image" amount="120" object="Windmills" text="In 2021 we produced and installed 120 new windmills. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+            <LoadInPoint filename="cars" alt-text="Car image" amount="1200" object="Electric cars" text="In 2021 we produced and installed 1200 new electric vehicles. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+            <LoadInPoint filename="solarpanels" alt-text="Solarpanels image" amount="3600" object="Solar panels" text="In 2021 we installed 1200 new solar panels. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+        </div>
+    </div>
+    <div class="our-mission">
+        <div class="curved-bg">
+            <div class="curve-top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319">
+                    <path fill-opacity="1" d="M0,256L60,240C120,224,240,192,360,176C480,160,600,160,720,176C840,192,960,224,1080,224C1200,224,1320,192,1380,176L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                </svg>
+            </div>
+            <div class="content">
+                <h1>Our Mission</h1>
+
+                <div class="container">
+                    <OurMission direction="left" filename="roof" alt-text="Roof image" text="Our mission/vision here at Greenise is to help the world move into a green focused future. We develop electric vehicles, windmills, solar panels and help people reduce their carbon footprint with personal advisors. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor." />
+                    <OurMission direction="right" filename="our-mission-windmills" alt-text="Windmills" text="Did you know that fossil fuels caused 8.7m deaths globally in 2018? Our goal is to try and get rid of these fossil fuels. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor." />
+                    <OurMission direction="left" filename="plastic-ocean" alt-text="Plastic in the ocean" text="Every year we also donate part of our profit to charities that help clean up our planet. Some great examples of this are teamseas and teamtrees. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida lacus ut purus tempus finibus. Aliquam a pulvinar massa, non tempor lectus. Etiam vel sapien ipsum. Curabitur luctus enim nec libero imperdiet gravida. Proin sit amet tortor ac tortor consectetur bibendum. Cras tincidunt ante non nisl posuere sollicitudin. Duis sodales nec purus et elementum. Duis mollis semper tortor. Praesent sem." />
+                </div>
+            </div>
+            <div class="curve-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319">
+                    <path fill-opacity="1" d="M0,256L60,240C120,224,240,192,360,176C480,160,600,160,720,176C840,192,960,224,1080,224C1200,224,1320,192,1380,176L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="our-team">
+        <div class="employees">
+            <div class="slider">
+                <div class="container">
                     <div class="row">
-                        <div class="col-auto">
-                            <picture>
-                                <source type="image/webp" srcset="/images/index/windmill.webp">
-                                <img src="/images/index/windmill.jpg" alt="Main image">
-                            </picture>
+                        <div class="col-1 button-backwards d-flex justify-content-center">
+                            <button class="btn btn-main" onclick="previousEmployee()">
+                                <span uk-icon="icon: chevron-left; ratio: 2"></span>
+                            </button>
                         </div>
-                        <div class="col-lg-9">
-                            <h2>120</h2>
-                            <h3>Windmills</h3>
-                            <p>In 2021 we produced and installed 120 new windmills</p>
+                        <div class="col-10 d-flex justify-content-center content">
+                            <EmployeeItem />
+                        </div>
+                        <div class="col-1 button-forwards d-flex justify-content-center">
+                            <button class="btn btn-main" onclick="nextEmployee()">
+                                <span uk-icon="icon: chevron-right; ratio: 2"></span>           
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -65,7 +97,26 @@
 </template>
 
 <script>
+import loadInPoint from '../components/LoadInPoint.vue';
+
 export default {
     name: 'IndexPage',
+    components: {
+        loadInPoint
+    },
+    head() {
+        return {
+            title: 'Home page',
+            script: [{
+                hid: 'stripe',
+                src: '/js/index.js',
+                defer: true
+            }]
+        }
+    }
 }
 </script>
+
+<style lang="scss">
+@import "@/assets/scss/index.scss";
+</style>

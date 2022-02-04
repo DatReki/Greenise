@@ -8,7 +8,7 @@
             <div id="navbar-content" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <NuxtLink to="/" class="nav-link">Home</NuxtLink>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cars</a>
@@ -31,7 +31,7 @@
                                     Profile
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="profile-dropdown">
-                                    <li><a class="dropdown-item" href="#">Login</a></li>
+                                    <li><NuxtLink to="/user/login" class="dropdown-item">Login</NuxtLink></li>
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
@@ -45,7 +45,7 @@
         </div>
     </nav>
     <div class="content-body">
-        <Nuxt />
+        <Nuxt keep-alive />
     </div>
     <footer>
         <div class="container">
@@ -98,7 +98,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-auto px-0 px-lg-2 mt-2 mt-lg-0">
-                                        <button class="btn btn-primary w-100" type="submit">Subscribe</button>
+                                        <button class="btn btn-primary btn-second w-100" type="submit">Subscribe</button>
                                     </div>
                                 </div>
                             </div>

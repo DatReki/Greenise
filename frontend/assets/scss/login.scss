@@ -1,0 +1,75 @@
+@use 'main';
+
+#login-page {
+    min-height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #login-container {
+        width: 50%;
+        background-color: main.$bg-color;
+
+        @media (max-width: main.$lg) {
+            width: 75%;
+        }
+
+        .uk-subnav {
+            width: 20em;
+            margin: auto;
+            align-items: stretch;
+            justify-content: space-between;
+            color: main.$text-color;
+            
+            li {
+                a {
+                    font-size: 2rem;
+
+                    &:hover,
+                    &:focus {
+                        background-color: initial;
+                        color: darken(main.$text-color, 5%);
+                    }
+                }
+            }
+            .uk-active {
+                a {
+                    background-color: initial;
+                    border-bottom: main.$nav-border;
+                }
+            }
+        }
+        .uk-switcher {
+            display:  flex;
+            justify-content: center;
+
+            li {
+                width: 75%;
+
+                form {
+                    h3 {
+                        color: main.$text-color;
+                        margin: 0 0 0 0; 
+                    }
+                    .uk-margin {
+                        margin: 0 0 2em 0 !important;
+                        .uk-inline {
+                            width: 100%;
+            
+                            .uk-form-icon {
+                                /* Make sure the icons have a set height so that they don't change,
+                                when bootstrap's form validation becomes visible */
+                                height: 2.5em;
+                            }
+                        }
+                    }
+                    button {
+                        padding: 0.5em;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+@use 'main';
+
+.our-mission {
+    .content {
+        color: main.$text-color;
+        .container {
+            .row {
+                margin-bottom: 2em;
+
+                .text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    p {
+                        height: fit-content;
+                        padding: 0 2em 0 2em;
+                    }
+                }
+
+                img {
+                    height: 20em;
+                    width: 20em;
+                    display: inline-block;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.employees {
+    .employee-overview {
+        /*
+            3-2-2022
+            Bootstrap version: 5.1.3
+            Uikit version: 3.10.1
+            For some reason both Bootstrap and UIkit think it's a good idea to use display: none !important;
+            Have to write my own css to work around it.
+        */
+        display: none;
+        text-align: center;
+        animation: transistionIn 0.25s ease-in;
+
+        img {
+            border-radius: 50%;
+        }
+
+        h4 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        h4, 
+        a, 
+        p, 
+        address {
+            word-break: break-word;
+        }
+
+        li {
+            margin-bottom: 1em;
+            
+            i {
+                color: main.$special-color;
+            }
+        }
+
+        @keyframes transistionIn {
+            0% {
+                transform: translateX(-15em);
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+}
