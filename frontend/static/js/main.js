@@ -1,7 +1,20 @@
+/**
+ * The global JS file that is used across the entire website.
+ *
+ * This file only contains logic/functions that are required by multiple pages within the application.
+ * The JS in this file will be loaded on every page in the app.
+ *
+ * @author DatReki.
+ */
+
+
 window.onload = function() {
     EnableFormValidation();
 }
 
+/**
+ * Enable bootstrap based form validation across the entire website
+ */
 function EnableFormValidation() {
     'use strict'
   

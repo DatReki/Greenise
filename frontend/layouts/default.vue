@@ -30,12 +30,15 @@
                                 <a id="profile-dropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Profile
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="profile-dropdown">
-                                    <li><NuxtLink to="/user/login" class="dropdown-item">Login</NuxtLink></li>
+                                <ul v-if="$auth.loggedIn" class="dropdown-menu" aria-labelledby="profile-dropdown">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Test</a></li>
+                                    <li><a class="dropdown-item" href="#" @click.prevent="logout()">Logout</a></li>
+                                </ul>
+                                <ul v-else class="dropdown-menu" aria-labelledby="profile-dropdown">
+                                    <li><NuxtLink to="/user/login" class="dropdown-item">Login</NuxtLink></li>
                                 </ul>
                             </li>
                         </ul>
@@ -54,7 +57,7 @@
                     <div class="col-12 col-md-6 col-lg-2 mt-4 mt-lg-0 text-center text-md-start">
                         <h5>General</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/" class="nav-link p-0">Home</NuxtLink></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
@@ -75,12 +78,13 @@
 
                     <div class="col-12 col-lg-2 mt-4 mt-lg-0 text-center text-md-start">
                         <h5>Account</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+                        <ul v-if="$auth.loggedIn" class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Profile</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0" @click.prevent="logout()">Logout</a></li>
+                        </ul>
+                        <ul v-else class="nav flex-column">
+                            <li class="nav-item mb-2"><NuxtLink to="/user/login?show_form=login" class="nav-link p-0">Login</NuxtLink></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/user/login?show_form=register" class="nav-link p-0">Register</NuxtLink></li>
                         </ul>
                     </div>
 
@@ -140,5 +144,10 @@
 <script>
 export default {
     name: 'LayoutDefault',
+    methods: {
+        async logout() {
+            await this.$auth.logout();
+        }
+    }
 }
 </script>

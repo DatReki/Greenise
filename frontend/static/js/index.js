@@ -1,3 +1,12 @@
+/**
+ * The JS file used for any JavaScript on the pages/index.vue page.
+ *
+ * This file contains the login/function that is required on the index.vue page when visting it with a browser.
+ * It currently only contains logic centered around the employee slider at the bottom of the home page.
+ *
+ * @author DatReki.
+ */
+
 const employees = document.getElementsByClassName("employee-overview");
 
 window.onload = function() {

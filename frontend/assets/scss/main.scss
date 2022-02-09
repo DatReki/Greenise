@@ -110,7 +110,7 @@ body {
                 &:hover {
                     border-bottom: none;
                     span {
-                        color: darken($text-color, 20%);
+                        color: $special-color;
                     }
                 }
                 span {
