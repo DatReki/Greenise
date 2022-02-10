@@ -10,5 +10,8 @@ Install composer
 Prepare database, run migrations and seeders
 > composer refresh
 
+Generate key
+> php artisan key:generate
+
 Run project
 > php artisan serve
