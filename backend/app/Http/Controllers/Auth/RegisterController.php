@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -17,13 +18,6 @@ class RegisterController extends Controller
             'email' => 'required|string|unique:users,email',
             'password' => 'required|string|confirmed'
         ]);
-
-        error_log("User is trying to register with:
-            \nName: ".$fields['name'].
-            "\nEmail: ".$fields['email'].
-            "\nPassword: ".$fields['password'].
-            "\nConfirmation password: ".$fields['password_confirmation'].
-            "\n\n");
 
         $user = User::create([
             'name' => $fields['name'],

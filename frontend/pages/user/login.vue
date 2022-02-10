@@ -96,8 +96,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
     name: 'LoginPage',
     data() {
@@ -105,7 +103,8 @@ export default {
             name: '',
             email: '',
             password: '',
-            password_confirmation: ''
+            password_confirmation: '',
+            errors: []
         }
     },
     head() {
@@ -120,55 +119,45 @@ export default {
     },
     methods: {
         async login() {
-            console.log("login - email: " + this.email + " password: " + this.password);
-            await this.$auth.loginWith('laravelSanctum', {
-                data: {
-                    email: this.email,
-                    password: this.password,
+            try {
+                await this.$auth.loginWith('laravelSanctum', {
+                    data: {
+                        email: this.email,
+                        password: this.password,
+                    }
+                })
+            } catch (err) {
+                if (err.response.status = 422) {
+                    this.errors = 'Could not sign you in with those credentials.'
                 }
-            })
-            /*
-                           .then((response) => {
-                               // Handle response
-                           })
-                           .catch((error) => {
-                               // Handle any errors
-                           }) */
-            ;
+            }
         },
         async register() {
+            let errors = [];
             try {
-                console.log("registering new user");
-
-                await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie')
-                    .then((response) => {
-                        console.log("response: " + response);
+                await this.$axios.$get('sanctum/csrf-cookie');
+                await this.$axios.$post('/api/register', {
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                        password_confirmation: this.password_confirmation
+                    })
+                    .then(() => {
+                        this.login();
                     })
                     .catch((error) => {
-                        console.log("error: " + error);
-                    });
+                        if (error.response.status === 422) {
+                            errors = error.response.data.errors;
 
-                await axios.post('http://127.0.0.1:8000/api/register', {
-                        data: {
-                            name: this.name,
-                            email: this.email,
-                            password: this.password,
-                            password_confirmation: this.password_confirmation
+                        } else {
+
                         }
-                    })
-                    .then((response) => {
-                        console.log("Register:\n status: " + response.response.status + "\n  content: " + response.response);
-                    }).catch((error) => {
-                        console.log("register - error: " + error)
 
-                        // if (err.reponse.status = 422) {
-                        // Errors
-                        // }
                     });
-                // await this.login();
             } catch (error) {
-
+                console.log("something went wrong while registering: " + error);
             }
+            this.errors = errors;
         }
     }
 }
