@@ -96,6 +96,8 @@
 </template>
 
 <script>
+const loginFile = "/js/login.js";
+
 export default {
     name: 'LoginPage',
     data() {
@@ -112,9 +114,18 @@ export default {
             title: 'Login',
             script: [{
                 hid: 'stripe',
-                src: '/js/login.js',
+                src: loginFile,
                 defer: true
             }]
+        }
+    },
+    mounted() {
+        if (!process.server) {
+            let script = document.createElement("script");
+            script.onload = this.onScriptLoaded;
+            script.type = "text/javascript";
+            script.src = loginFile;
+            document.head.appendChild(script);
         }
     },
     methods: {

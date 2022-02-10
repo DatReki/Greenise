@@ -8,11 +8,23 @@
     align-items: center;
 
     #login-container {
+        margin: 2em 0 2em 0;
         width: 50%;
         background-color: main.$bg-color;
 
         @media (max-width: main.$lg) {
             width: 75%;
+
+            @media (max-width: main.$sm) {
+                width: 95%;
+
+                .uk-subnav {
+                    width: 16em !important;
+                    li a {
+                        font-size: 1.5rem !important;
+                    }                   
+                }
+            }
         }
 
         .uk-subnav {

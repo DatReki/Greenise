@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiUsersController;
+use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -29,3 +30,4 @@ Route::post('/logout', LogoutController::class);
 
 //Api
 Route::get('colleagues', [ApiUsersController::class, 'GetAllColleagues']);
+Route::get('resources', [ResourcesController::class, 'GetAllResources']);

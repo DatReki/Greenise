@@ -75,15 +75,15 @@
             <div class="slider">
                 <div class="container">
                     <div class="row">
-                        <div class="col-1 button-backwards d-flex justify-content-center">
+                        <div class="col-2 col-md-1 button-backwards d-flex justify-content-center">
                             <button class="btn btn-main" onclick="previousEmployee()">
                                 <span uk-icon="icon: chevron-left; ratio: 2"></span>
                             </button>
                         </div>
-                        <div class="col-10 d-flex justify-content-center content">
+                        <div class="col-8 col-md-10 d-flex justify-content-center content">
                             <EmployeeItem />
                         </div>
-                        <div class="col-1 button-forwards d-flex justify-content-center">
+                        <div class="col-2 col-md-1 button-forwards d-flex justify-content-center">
                             <button class="btn btn-main" onclick="nextEmployee()">
                                 <span uk-icon="icon: chevron-right; ratio: 2"></span>           
                             </button>

@@ -18,7 +18,6 @@ function CheckUrlParameters() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const showForm = urlParams.get('show_form')
-    console.log("function ran");
 
     const switcher = document.querySelector(".content-body .uk-switcher");
     const login = switcher.children[0];

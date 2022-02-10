@@ -11,7 +11,7 @@
                         <NuxtLink to="/" class="nav-link">Home</NuxtLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cars</a>
+                        <NuxtLink to="/products" class="nav-link">Products</NuxtLink>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Technologies</a>
@@ -48,7 +48,7 @@
         </div>
     </nav>
     <div class="content-body">
-        <Nuxt keep-alive />
+        <Nuxt />
     </div>
     <footer>
         <div class="container">
@@ -83,8 +83,8 @@
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0" @click.prevent="logout()">Logout</a></li>
                         </ul>
                         <ul v-else class="nav flex-column">
-                            <li class="nav-item mb-2"><NuxtLink to="/user/login?show_form=login" class="nav-link p-0">Login</NuxtLink></li>
-                            <li class="nav-item mb-2"><NuxtLink to="/user/login?show_form=register" class="nav-link p-0">Register</NuxtLink></li>
+                            <li class="nav-item mb-2"><a href="/user/login?show_form=login" class="nav-link p-0">Login</a></li>
+                            <li class="nav-item mb-2"><a href="/user/login?show_form=register" class="nav-link p-0">Register</a></li>
                         </ul>
                     </div>
 
