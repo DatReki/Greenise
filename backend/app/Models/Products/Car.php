@@ -22,10 +22,16 @@ class Car extends Model
      * @var string[]
      */
     protected $fillable = [
-        'type',
         'brand',
         'model',
-        'license_plate',
+        'battery',
+        'range',
+        'top_speed',
+        'acceleration',
+        'motor',
+        'power_consumption',
+        'production_start',
+        'production_end',
         'image',
     ];
 }

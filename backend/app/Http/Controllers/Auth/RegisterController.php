@@ -11,12 +11,19 @@ use Illuminate\Validation\ValidationException;
 class RegisterController extends Controller
 {
     //Class only has a single function so we just use invoke rather than creating a specific function
+    /**
+     * Function to register a new user account
+     * 
+     * @param Request $request The request. Must contains the following POST values: name, email, password & password_confirmation.
+     * @return String JSON string with the result of the request.
+     */
     public function __invoke(Request $request) 
     {
         $fields = $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string|unique:users,email',
-            'password' => 'required|string|confirmed'
+            'email' => 'required|string|email|unique:users,email|min:4',
+            'password' => 'required|string|confirmed|min:6',
+            'password_confirmation' => 'required|string|min:6'
         ]);
 
         $user = User::create([

@@ -14,11 +14,17 @@ class ProductsCarsTable extends Migration
     public function up()
     {
         Schema::create('products_cars', function (Blueprint $table) {
-            $table->id();
-            $table->string('type');
+            $table->bigIncrements('id');
             $table->string('brand');
             $table->string('model');
-            $table->string('license_plate');
+            $table->integer('battery');
+            $table->integer('range');
+            $table->integer('top_speed');
+            $table->decimal('acceleration', 4, 2);
+            $table->string('motor');
+            $table->decimal('power_consumption', 4, 2);
+            $table->dateTime('production_start');
+            $table->string('production_end');
             $table->string('image');
             $table->timestamps();
         });

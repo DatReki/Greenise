@@ -9,15 +9,25 @@
             <!-- Login -->
             <li>
                 <div>
-                    <form class="needs-validation" novalidate @submit.prevent="login">
+                    <form id="login-form" class="needs-validation" novalidate @submit.prevent="login">
                         <h3>Email</h3>
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                <input v-model="email" class="uk-input" type="email" minlength="4" required>
+                                <input v-model="email" id="login-email" class="uk-input" type="email" minlength="4" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
-                                    Please enter your email.
+                                    <template v-if="errors !== undefined">
+                                        <template v-if="errors.email !== undefined">
+                                            {{ errors.email[0] }}
+                                        </template>
+                                        <template v-else>
+                                            {{ errors }}
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        Please enter your email.
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +35,7 @@
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input v-model="password" class="uk-input" type="password" minlength="6" required>
+                                <input v-model="password" id="login-password" class="uk-input" type="password" minlength="6" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
                                     Please enter your password.
@@ -39,15 +49,22 @@
             <!-- Register -->
             <li>
                 <div>
-                    <form class="needs-validation" novalidate @submit.prevent="register">
+                    <form id="registration-form" class="needs-validation" novalidate @submit.prevent="register">
                         <h3>Name</h3>
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                <input v-model="name" class="uk-input" type="text" minlength="2" required>
+                                <input v-model="name" id="name" class="uk-input" type="text" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
-                                    Please enter your email.
+                                    <template v-if="errors !== undefined">
+                                        <template v-if="errors.name !== undefined">
+                                            {{ errors.name[0] }}
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        Please enter your name.
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -55,10 +72,17 @@
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                <input v-model="email" class="uk-input" type="email" minlength="4" required>
+                                <input v-model="email" id="email" class="uk-input" type="email" minlength="4" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
-                                    Please enter your email.
+                                    <template v-if="errors !== undefined">
+                                        <template v-if="errors.email !== undefined">
+                                            {{ errors.email[0] }}
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        Please enter your email.
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -66,11 +90,18 @@
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input v-model="password" class="uk-input" type="password" minlength="6" required>
+                                <input v-model="password" id="password" class="uk-input" type="password" minlength="6" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
-                                    Please enter your password.<br>
-                                    It needs to be 6 characters or longer.
+                                    <template v-if="errors !== undefined">
+                                        <template v-if="errors.password !== undefined">
+                                            {{ errors.password[0] }}
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        Please enter your password.<br>
+                                        It needs to be 6 characters or longer.
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -78,11 +109,18 @@
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input v-model="password_confirmation" class="uk-input" type="password" minlength="6" required>
+                                <input v-model="password_confirmation" id="password_confirmation" class="uk-input" type="password" minlength="6" required>
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">
-                                    Please enter your password.<br>
-                                    It needs to be 6 characters or longer.
+                                    <template v-if="errors !== undefined">
+                                        <template v-if="errors.password_confirmation !== undefined">
+                                            {{ errors.password_confirmation[0] }}
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        Please enter your password.<br>
+                                        It needs to be 6 characters or longer.
+                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -130,18 +168,40 @@ export default {
     },
     methods: {
         async login() {
+            let errors = [];
             try {
                 await this.$auth.loginWith('laravelSanctum', {
                     data: {
                         email: this.email,
                         password: this.password,
                     }
-                })
-            } catch (err) {
-                if (err.response.status = 422) {
-                    this.errors = 'Could not sign you in with those credentials.'
+                }).then(() => {
+                    this.removeValidationErrors("login-form");
+                });
+            } catch (error) {
+                if (error.response.status = 422) {
+                    errors = error.response.data.errors;
+
+                    const email = "login-email";
+                    const password = "login-password";
+
+                    if (errors == undefined) {
+                        errors = error.response.data.result;
+                        this.validationErrors(email, errors);
+                        this.validationErrors(password, undefined);
+                    } else {
+                        let errorArray = [
+                            [email, errors.email],
+                            [password, errors.password]
+                        ];
+
+                        for (let i = 0; i < errorArray.length; i++) {
+                            this.validationErrors(errorArray[i][0], errorArray[i][1]);
+                        }
+                    }
                 }
             }
+            this.errors = errors;
         },
         async register() {
             let errors = [];
@@ -154,16 +214,24 @@ export default {
                         password_confirmation: this.password_confirmation
                     })
                     .then(() => {
+                        this.removeValidationErrors("registration-form");
                         this.login();
                     })
                     .catch((error) => {
                         if (error.response.status === 422) {
                             errors = error.response.data.errors;
 
-                        } else {
+                            let errorArray = [
+                                ['name', errors.name],
+                                ['email', errors.email],
+                                ['password', errors.password],
+                                ['password_confirmation', errors.password_confirmation]
+                            ];
 
+                            for (let i = 0; i < errorArray.length; i++) {
+                                this.validationErrors(errorArray[i][0], errorArray[i][1]);
+                            }
                         }
-
                     });
             } catch (error) {
                 console.log("something went wrong while registering: " + error);

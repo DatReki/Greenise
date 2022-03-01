@@ -14,12 +14,12 @@ class ProductsWindTurbineTable extends Migration
     public function up()
     {
         Schema::create('products_wind_turbines', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('brand');
             $table->string('model');
-            $table->string('power');
-            $table->string('height');
-            $table->string('rotor_diameter');
+            $table->integer('power');
+            $table->decimal('height', 4, 2);
+            $table->decimal('rotor_diameter', 4, 2);
             $table->integer('year');
             $table->string('image');
             $table->timestamps();

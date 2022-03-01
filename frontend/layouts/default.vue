@@ -14,13 +14,10 @@
                         <NuxtLink to="/products" class="nav-link">Products</NuxtLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Technologies</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <NuxtLink to="/contact" class="nav-link" href="#">Contact</NuxtLink>
                     </li>
                 </ul>
                 <div class="d-flex me-5">
@@ -68,11 +65,7 @@
                     <div class="col-12 col-md-6 col-lg-2 mt-4 mt-lg-0 text-center text-md-start">
                         <h5>Resources</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="https://unsplash.com/" class="nav-link p-0">Unsplash</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/resources" class="nav-link p-0">Resources page</NuxtLink></li>
                         </ul>
                     </div>
 
@@ -94,7 +87,7 @@
                             <p>Monthly digest of whats new and exciting from us.</p>
                             <div class="container px-0 py-0 w-100">
                                 <div class="row justify-content-md-center">
-                                    <div class="col-md-12 col-lg-8 px-0 py-0">
+                                    <div class="col-md-12 col-lg-6 col-xl-8 px-0 py-0">
                                         <input id="newsletter1" type="email" class="form-control" placeholder="Email address" minlength="4" required>
                                         <div class="valid-feedback d-none newsletter-errors"></div>
                                         <div class="invalid-feedback newsletter-errors">

@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Cache;
 
 class ApiUsersController extends Controller
 {
+    /**
+     * Function to get colleagues from database.
+     * 
+     * Get all fake colleagues from cache and if not cached grab them from database.
+     * 
+     * @return String JSON string with the result of the request.
+     */
     public function GetAllColleagues() 
     {
         $cache_key = "home-users";

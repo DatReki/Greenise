@@ -29,5 +29,6 @@ class WindTurbine extends Model
         'rotor_diameter',
         'year',
         'image',
+        'created_at',
     ];
 }

@@ -45,10 +45,10 @@ export default {
     },
     computed: {
         imageSet() {
-            return require(`~/static/images/index/${this.filename}.webp`)
+            return this.requireImage("/index", this.filename, ".webp");
         },
         image() {
-            return require(`~/static/images/index/${this.filename}.jpg`)
+            return this.requireImage("/index", this.filename, ".jpg");
         }
     }
 }

@@ -3,10 +3,10 @@
     <div class="container-fluid px-0">
         <div class="text-image-overlay">
             <picture>
-                <source type="image/webp" srcset="/images/index/main-1200-portrait.webp" media="(max-width: 375px) and (orientation: portrait)">
-                <source type="image/jpeg" srcset="/images/index/main-1200-portrait.jpg" media="(max-width: 375px) and (orientation: portrait)">
-                <source type="image/webp" srcset="/images/index/main-145.webp" media="(max-width: 375px) and (orientation: landscape)">
-                <source type="image/jpeg" srcset="/images/index/main-145.jpg" media="(max-width: 375px) and (orientation: landscape)">
+                <source type="image/webp" srcset="/images/index/main-1200-portrait.webp" media="(max-width: 376px) and (orientation: portrait)">
+                <source type="image/jpeg" srcset="/images/index/main-1200-portrait.jpg" media="(max-width: 376px) and (orientation: portrait)">
+                <source type="image/webp" srcset="/images/index/main-145.webp" media="(max-width: 376px) and (orientation: landscape)">
+                <source type="image/jpeg" srcset="/images/index/main-145.jpg" media="(max-width: 376px) and (orientation: landscape)">
                 <source type="image/webp" srcset="/images/index/main-720.webp" media="(max-width: 1280px)">
                 <source type="image/jpeg" srcset="/images/index/main-720.jpg" media="(max-width: 1280px)">
                 <source type="image/webp" srcset="/images/index/main-1080.webp" media="(max-width: 1920px)">
@@ -37,14 +37,16 @@
                     Duis finibus tempus sem consequat placerat.
                 </p>
                 <a class="btn btn-main">More information</a>
+                <a id="about" class="d-none hidden-anchor-links"></a>
             </div>
         </div>
     </div>
     <div class="container">
+        <a id="statements" class="d-none"></a>
         <div class="load-in-points">
-            <LoadInPoint filename="windmill" alt-text="Windmill image" amount="120" object="Windmills" text="In 2021 we produced and installed 120 new windmills. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
-            <LoadInPoint filename="cars" alt-text="Car image" amount="1200" object="Electric cars" text="In 2021 we produced and installed 1200 new electric vehicles. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
-            <LoadInPoint filename="solarpanels" alt-text="Solarpanels image" amount="3600" object="Solar panels" text="In 2021 we installed 1200 new solar panels. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+            <LoadInPoint filename="windmill" alt-text="Windmill image" amount="120" object="Windmills" text="In 2021 we installed 120 new windmills. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+            <LoadInPoint filename="cars" alt-text="Car image" amount="1200" object="Electric cars" text="In 2021 we sold 1200 new electric vehicles. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
+            <LoadInPoint filename="solarpanels" alt-text="Solarpanels image" amount="3600" object="Solar panels" text="In 2021 we sold 1200 new solar panels. Nunc ut metus ultrices, aliquam ex sed, tincidunt lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean quis varius erat, sit amet congue mauris. Pellentesque vulputate dignissim eros, eget interdum orci venenatis volutpat." />
         </div>
     </div>
     <div class="our-mission">
@@ -56,9 +58,9 @@
             </div>
             <div class="content">
                 <h1>Our Mission</h1>
-
+                <a id="our-mission" class="d-none hidden-anchor-links"></a>
                 <div class="container">
-                    <OurMission direction="left" filename="roof" alt-text="Roof image" text="Our mission/vision here at Greenise is to help the world move into a green focused future. We develop electric vehicles, windmills, solar panels and help people reduce their carbon footprint with personal advisors. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor." />
+                    <OurMission direction="left" filename="roof" alt-text="Roof image" text="Our mission/vision here at Greenise is to help the world move into a green focused future. We sell electric vehicles, windmills, solar panels and help people reduce their carbon footprint with personal advisors. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor." />
                     <OurMission direction="right" filename="our-mission-windmills" alt-text="Windmills" text="Did you know that fossil fuels caused 8.7m deaths globally in 2018? Our goal is to try and get rid of these fossil fuels. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor." />
                     <OurMission direction="left" filename="plastic-ocean" alt-text="Plastic in the ocean" text="Every year we also donate part of our profit to charities that help clean up our planet. Some great examples of this are teamseas and teamtrees. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lorem et ullamcorper egestas, nibh lectus fringilla turpis, ut aliquet nulla velit ut ex. Mauris consequat erat sit amet dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida lacus ut purus tempus finibus. Aliquam a pulvinar massa, non tempor lectus. Etiam vel sapien ipsum. Curabitur luctus enim nec libero imperdiet gravida. Proin sit amet tortor ac tortor consectetur bibendum. Cras tincidunt ante non nisl posuere sollicitudin. Duis sodales nec purus et elementum. Duis mollis semper tortor. Praesent sem." />
                 </div>

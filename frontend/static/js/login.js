@@ -15,8 +15,11 @@ window.onload = function() {
  * Change the "uk-active" class around on elements inside of the login-container depending on the url parameters
  */
 function CheckUrlParameters() {
+    //Get the current url
     const queryString = window.location.search;
+    //Get search parameters from url
     const urlParams = new URLSearchParams(queryString);
+    //Get "show_form" parameter from parameters
     const showForm = urlParams.get('show_form')
 
     const switcher = document.querySelector(".content-body .uk-switcher");
@@ -30,6 +33,7 @@ function CheckUrlParameters() {
     const activeClass = "uk-active";
 
     if (showForm != null) {
+        //Tell JS which tab of the form to show based on the "show_form" parameter
         if (showForm == "login") {
             if (register.className == activeClass && registerSubNav.className == activeClass) {
                 register.classList.remove(activeClass);

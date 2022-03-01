@@ -7,7 +7,7 @@
  * @author DatReki.
  */
 
-const employees = document.getElementsByClassName("employee-overview");
+let employees = document.getElementsByClassName("employee-overview");
 
 window.onload = function() {
     //Add employee id to each item in the class. Also unhide first element
@@ -20,7 +20,7 @@ window.onload = function() {
     }
 };
 
-// Show previous employee
+/** Show previous employee */
 function previousEmployee() {
     for (let i = 0; i < employees.length; i++) {
         const employee = employees[i];
@@ -47,7 +47,7 @@ function previousEmployee() {
     }
 }
 
-// Show next employee
+/** Show next employee */ 
 function nextEmployee() {
     for (let i = 0; i < employees.length; i++) {
         const employee = employees[i];

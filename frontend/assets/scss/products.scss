@@ -1,0 +1,46 @@
+@use 'main';
+
+.list-unstyled {
+    p {
+        margin: 0px;
+    }
+
+    .name {
+        font-weight: bold;
+    }
+}
+
+.card-img-top {
+    object-fit: cover;
+    object-position: 50% 15%;
+}
+
+#cars .card {
+    height: 47em;
+
+    @media (max-width: main.$md) {
+        height: 47em;
+    }
+
+    .card-img-top {
+        @media (min-width: main.$lg) {
+            height: 15em;
+        }
+    }
+}
+
+#wind-turbines {
+    .card-img-top {
+        height: 15em;
+    }
+}
+
+#solar-panels {
+    .card {
+        height: 35em;
+
+        .card-img-top {
+            height: 20em;
+        }
+    }
+}

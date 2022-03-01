@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class LogoutController extends Controller
 {
     //Class only has a single function so we just use invoke rather than creating a specific function
+    /**
+     * @param Request $request The request.
+     * @return String JSON string with the result of the request.
+     */
     public function __invoke(Request $request) 
     {
         //Logout

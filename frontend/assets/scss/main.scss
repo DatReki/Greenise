@@ -48,8 +48,8 @@ body {
             }
         }
 
-        .nav-link {
-            padding-right: 0.75em !important;
+        .nav-item {
+            padding-right: 1em !important;
         }
 
         .d-flex {
@@ -122,6 +122,14 @@ body {
 }
 
 /* General classes */
+.hidden-anchor-links {
+    // Hidden anchor links to scroll to specific sections
+    height: 0px !important;
+    width: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
 .btn-main,
 .btn-second {
     color: $text-color;
@@ -149,6 +157,51 @@ body {
     &:hover,
     &:focus {
         background-color: darken($special-color, 10%);
+    }
+}
+
+/*
+    Loading spinner made by PlotDB Ltd.
+    Url: https://loading.io/css/
+    Loader: lds-ring
+    License: CC0
+*/
+.loading-spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid $nav-color;
+        border-radius: 50%;
+        animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: $nav-color transparent transparent transparent;
+
+        &:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+        &:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+        &:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+    }
+}
+
+@keyframes loading-spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
 }
 
