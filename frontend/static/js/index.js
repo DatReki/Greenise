@@ -7,7 +7,7 @@
  * @author DatReki.
  */
 
-let employees = document.getElementsByClassName("employee-overview");
+var employees = document.getElementsByClassName("employee-overview");
 
 window.onload = function() {
     //Add employee id to each item in the class. Also unhide first element

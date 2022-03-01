@@ -225,6 +225,13 @@ body {
                 img {
                     height: 56em;
                 }
+
+                @media (max-width: 380px) {
+                    div,
+                    img {
+                        height: 60em;
+                    }         
+                }
             }
         }
     }
@@ -258,6 +265,10 @@ body {
 
         a {
             height: 2.5em;
+        }
+
+        h3 {
+            color: $text-color
         }
     }
 }

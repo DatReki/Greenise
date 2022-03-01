@@ -28,7 +28,7 @@
                                     Profile
                                 </a>
                                 <ul v-if="$auth.loggedIn" class="dropdown-menu" aria-labelledby="profile-dropdown">
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><NuxtLink to="/user/profile" class="dropdown-item">Profile</NuxtLink></li>
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
@@ -55,10 +55,9 @@
                         <h5>General</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><NuxtLink to="/" class="nav-link p-0">Home</NuxtLink></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/products" class="nav-link p-0">Products</NuxtLink></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/about-us" class="nav-link p-0">About us</NuxtLink></li>
+                            <li class="nav-item mb-2"><NuxtLink to="/contact" class="nav-link p-0">Contact</NuxtLink></li>
                         </ul>
                     </div>
 
